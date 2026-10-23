@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nibbles is 18!</title>
+  <!-- ADDED GOOGLE FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    /* 1. THE CANVAS (Warm Cream/Yellow Theme) */
+    body {
+      background-color: #FAF3E0; /* Warm cream from the bingo card */
+      font-family: 'Nunito', sans-serif; /* Soft, rounded, fun font! */
+      color: #5D4037; /* Dark brown text for readability */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+
+    /* 2. THE INVITATION CARD */
+    .invite-card {
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 30px;
+      box-shadow: 0 10px 30px rgba(93, 64, 55, 0.15);
+      text-align: center;
+      max-width: 850px;
+      width: 100%;
+      border: 4px solid #7CB342; /* Green from the bingo card */
+    }
+
+    /* 3. TYPOGRAPHY */
+    h1 {
+      color: #8D6E63; /* Brown for headers */
+      font-size: 2.5em;
+      margin-top: 0;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+
+    h2 {
+      color: #7CB342; /* Green */
+      font-size: 1.5em;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.1em;
+      line-height: 1.5;
+    }
+    
+    /* Input field for Name */
+    .name-input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 2px solid #B0BEC5;
+      border-radius: 15px;
+      font-size: 1.1em;
+      font-family: 'Nunito', sans-serif;
+      box-sizing: border-box;
+    }
+
+    /* 4. BUTTONS & LINKS */
+    button, .action-link {
+      background-color: #ffe391; /* Cheerful yellow button */
+      color: #5D4037;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-size: 1.1em;
+      font-weight: 900;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+      margin-bottom: 15px;
+      display: inline-block;
+      text-decoration: none;
+      box-sizing: border-box;
+    }
+
+    button:hover, .action-link:hover {
+      background-color: #fedc2d; /* Darker yellow */
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 202, 40, 0.4);
+    }
+
+    .secondary-btn {
+      background-color: #7CB342;
+      color: white;
+    }
+    
+    .secondary-btn:hover {
+      background-color: #689F38;
+      box-shadow: 0 5px 15px rgba(124, 179, 66, 0.4);
+    }
+
+    /* 5. SECTIONS (To hide/show things) */
+    #party-details {
+      display: none; /* Hidden until RSVP is clicked */
+    }
+
+    .mission-box {
+      background-color: #FFF9C4;
+      border: 2px dashed #FFCA28;
+      padding: 15px;
+      border-radius: 15px;
+      margin-top: 20px;
+      font-weight: bold;
+      color: #5D4037;
+      display: none; /* Hidden until mission is generated */
+    }
+    
+    #nameWarning {
+      color: #d32f2f;
+      font-weight: bold;
+      display: none;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="invite-card">
+    
+    <!-- SECTION 1: THE LANDING PAGE -->
+    <div id="landing-page">
+      <h1>🐨 NIBBLES IS 18! 👑</h1>
+      <p>You are officially invited to the most koala-fied 18th birthday party of the year, November 6th, Friday, 6:00-9:00 pm.</p>
+      <p>Will you be there?</p>
+      
+      <input type="text" id="guestName" class="name-input" placeholder="Enter your name first...">
+      <div id="nameWarning">ENTER YOUR NAME FIRST...</div>
+      
+      <button id="yesBtn">YES! I'M IN! 🎉</button>
+      <button id="noBtn" style="background-color: #e0e0e0; color: #777;">No, I hate you 😢</button>
+    </div>
+
+    <!-- SECTION 2: THE DETAILS (Revealed after clicking YES) -->
+    <div id="party-details">
+      <h1>YAY! 🥳</h1>
+      <p>I can't wait to see you! Here is everything you need to know.</p>
+
+      <div style="background-color: #f0f7f2; padding: 15px; border-radius: 15px; margin-bottom: 20px; text-align: left;">
+        <p><strong>📍 Where:</strong> Ladies' Recreation Club (LRC) 10 Old Peak Road, Mid-Levels </p>
+        <p><strong>⏰ When:</strong> November 6th, Friday 6:00-9:00 pm </p>
+        <p><strong>👗 Dress Code:</strong> Comfy shirt and pants </p>
+      </div>
+
+      <h2>Party Prep & Links</h2>
+      
+      <!-- Link to Canva Wishlist -->
+      <a href="https://canva.link/e69skpikxcu7jeo" target="_blank" class="action-link">🎁 View My Wishlist (Claim Gifts!)</a>
+      
+      <!-- Link to Bingo Card PDF -->
+      <a href="https://drive.google.com/file/d/1_xzkLVub7bEGX-Wnkqi7x9j4Gs4mFPPu/view?usp=sharing" target="_blank" class="action-link secondary-btn">📝 Download Party Bingo</a>
+      
+      <!-- Link to Google Form for Forbidden Tasks -->
+      <a href="https://forms.gle/BaJirkx8iM71DcT19" target="_blank" class="action-link secondary-btn">🤫 Submit a "Mission't"</a>
+
+      <h2>Your Secret Mission</h2>
+      <p style="font-size: 0.9em;">Click the button below to receive your secret party mission. Screenshot it and don't tell anyone!</p>
+      <button id="missionBtn">Get My Mission 🕵️‍♀️</button>
+      
+      <div id="missionDisplay" class="mission-box">
+        <!-- The randomly generated mission will appear here -->
+      </div>
+      
+      <!-- Added a Thank You box for 'No' RSVPs -->
+      <div id="no-message" style="display:none; padding: 20px;">
+        <h2>Aww 😢</h2>
+        <p>You'll be missed! Let me know if you change your mind.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script type="module">
+    // IMPORT FIREBASE TO ADD "MEMORY" (DATABASE)
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+    import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+    import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+    // Setup Database Variables
+    const appId = typeof __app_id !== 'undefined' ? __app_id : 'birthday-invite';
+    const hasFirebase = typeof __firebase_config !== 'undefined';
+    let db, auth, user;
+
+    // Connect to the Sandbox Database (if available)
+    if (hasFirebase) {
+        const app = initializeApp(JSON.parse(__firebase_config));
+        db = getFirestore(app);
+        auth = getAuth(app);
+        
+        const login = async () => {
+            if (typeof __initial_auth_token !== 'undefined') {
+                await signInWithCustomToken(auth, __initial_auth_token);
+            } else {
+                await signInAnonymously(auth);
+            }
+            user = auth.currentUser;
+            loadSavedMission(); // Check if they already generated a mission!
+        };
+        login();
+    }
+
+    // --- 1. RSVP LOGIC ---
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+    const landingPage = document.getElementById("landing-page");
+    const partyDetails = document.getElementById("party-details");
+    const noMessage = document.getElementById("no-message");
+    const guestNameInput = document.getElementById("guestName");
+    const nameWarning = document.getElementById("nameWarning");
+
+    yesBtn.addEventListener("click", async function() {
+      const guestName = guestNameInput.value.trim();
+      if (guestName === "") {
+        nameWarning.style.display = "block"; // Show warning if name is empty
+        return;
+      }
+      nameWarning.style.display = "none";
+      
+      // Save their YES to the database
+      if (hasFirebase && user) {
+        try {
+            const rsvpRef = doc(db, 'artifacts', appId, 'public', 'data', 'rsvps', user.uid);
+            await setDoc(rsvpRef, { name: guestName, rsvp: 'yes', time: Date.now() });
+        } catch (e) { console.error("Could not save RSVP"); }
+      }
+
+      landingPage.style.display = "none";
+      partyDetails.style.display = "block";
+    });
+
+    noBtn.addEventListener("click", async function() {
+      const guestName = guestNameInput.value.trim();
+      if (guestName === "") {
+        nameWarning.style.display = "block";
+        return;
+      }
+      nameWarning.style.display = "none";
+
+      // Save their NO to the database
+      if (hasFirebase && user) {
+        try {
+            const rsvpRef = doc(db, 'artifacts', appId, 'public', 'data', 'rsvps', user.uid);
+            await setDoc(rsvpRef, { name: guestName, rsvp: 'no', time: Date.now() });
+        } catch (e) { console.error("Could not save RSVP"); }
+      }
+      
+      // Show the sad message
+      landingPage.innerHTML = `<h2>Aww 😢</h2><p>Thanks for letting me know, ${guestName}. You'll be missed!</p>`;
+    });
+
+
+    // --- 2. SECRET MISSION GENERATOR LOGIC ---
+    const missionBtn = document.getElementById("missionBtn");
+    const missionDisplay = document.getElementById("missionDisplay");
+
+    const missions = [
+      "Slip the phrase 'koala-fied' into a conversation without anyone noticing.",
+      "Start a slow clap at a completely random moment.",
+      "Convince someone that one of the gifts was actually bought by you.",
+      "High-five at least 5 different people within 10 minutes of arriving.",
+      "Casually drop a vine reference and see if anyone notices.",
+      "Make a toast to the birthday girl using a fake accent.",
+      "Drop a present (safely!) and make a big deal out of it.",
+      "Tell everyone the playlist is broken whenever a bad song comes on.",
+      "Sing the wrong song in karaoke and get someone to sing along.",
+      "Start a dance off with someone unplanned.",
+      "Loudly announce you're gonna strike and instantly land the gutter.",
+      "Steal a bite of food from 3 other people.",
+      "Loudly ask for some alcohol.",
+      "Ask 5 people if your tail fell off.",
+      "Ask 3 other people what they would do if they were actually friends with Alysha (get 3 responses).",
+      "Eat a whole slice of pizza without taking your eyes off one other person.",
+      "Feed two other people.",
+      "Take one selfie with Alysha and exactly 3 other people."
+    ];
+
+    // Function to check if they already have a mission saved
+    async function loadSavedMission() {
+      if (!hasFirebase || !user) return;
+      
+      try {
+        const missionRef = doc(db, 'artifacts', appId, 'users', user.uid, 'missions', 'my_mission');
+        const docSnap = await getDoc(missionRef);
+        
+        if (docSnap.exists()) {
+           // They already have a mission! Load it.
+           const savedMission = docSnap.data().text;
+           missionDisplay.innerText = "YOUR MISSION: " + savedMission;
+           missionDisplay.style.display = "block";
+           missionBtn.style.display = "none"; // Hide the generator button
+        }
+      } catch (e) { console.error(e); }
+    }
+
+    missionBtn.addEventListener("click", async function() {
+      const randomIndex = Math.floor(Math.random() * missions.length);
+      const selectedMission = missions[randomIndex];
+      
+      missionDisplay.innerText = "YOUR MISSION: " + selectedMission;
+      missionDisplay.style.display = "block";
+      missionBtn.style.display = "none";
+      
+      // Save this unique mission to the database so it stays the same when they refresh!
+      if (hasFirebase && user) {
+        try {
+            const missionRef = doc(db, 'artifacts', appId, 'users', user.uid, 'missions', 'my_mission');
+            await setDoc(missionRef, { text: selectedMission });
+        } catch (e) { console.error("Could not save mission"); }
+      }
+    });
+  </script>
+
+</body>
+</html>

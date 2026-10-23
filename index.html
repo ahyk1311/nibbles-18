@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nibbles is 18!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    /* THE CANVAS (Warm Cream/Yellow Theme from Bingo Card) */
+    body {
+      background-color: #FAF3E0; 
+      font-family: 'Nunito', sans-serif; 
+      color: #5D4037; 
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+
+    /* THE INVITATION CARD */
+    .invite-card {
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 30px;
+      box-shadow: 0 10px 30px rgba(93, 64, 55, 0.15);
+      text-align: center;
+      max-width: 850px; 
+      width: 100%;
+      border: 4px solid #7CB342; /* Green from the bingo card */
+    }
+
+    /* TYPOGRAPHY */
+    h1 {
+      color: #8D6E63; 
+      font-size: 2.5em;
+      margin-top: 0;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+
+    h2 {
+      color: #7CB342; 
+      font-size: 1.5em;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.1em;
+      line-height: 1.5;
+    }
+    
+    .name-input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 2px solid #B0BEC5;
+      border-radius: 15px;
+      font-size: 1.1em;
+      font-family: 'Nunito', sans-serif;
+      box-sizing: border-box;
+    }
+
+    /* BUTTONS & LINKS */
+    button, .action-link {
+      background-color: #FFCA28; /* Cheerful yellow button */
+      color: #5D4037;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-size: 1.1em;
+      font-weight: 900;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+      margin-bottom: 15px;
+      display: inline-block;
+      text-decoration: none;
+      box-sizing: border-box;
+    }
+
+    button:hover, .action-link:hover {
+      background-color: #FFB300; 
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 202, 40, 0.4);
+    }
+
+    .secondary-btn {
+      background-color: #7CB342;
+      color: white;
+    }
+    
+    .secondary-btn:hover {
+      background-color: #689F38;
+      box-shadow: 0 5px 15px rgba(124, 179, 66, 0.4);
+    }
+
+    /* SECTIONS (To hide/show things) */
+    #party-details {
+      display: none; 
+    }
+
+    .mission-box {
+      background-color: #FFF9C4;
+      border: 2px dashed #FFCA28;
+      padding: 15px;
+      border-radius: 15px;
+      margin-top: 20px;
+      font-weight: bold;
+      color: #5D4037;
+      display: none; 
+    }
+    
+    #nameWarning {
+      color: #d32f2f;
+      font-weight: bold;
+      display: none;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="invite-card">
+    
+    <!-- SECTION 1: THE LANDING PAGE -->
+    <div id="landing-page">
+      <h1>🐨 NIBBLES IS 18! 👑</h1>
+      <p>You are officially invited to the most koala-fied 18th birthday party of the year.</p>
+      <p>I will be hosting it on November 6, Friday, 6:00-9:00 pm.</p>
+      <p>Will you be there?</p>
+      
+      <input type="text" id="guestName" class="name-input" placeholder="Enter your name first...">
+      <div id="nameWarning">ENTER YOUR NAME FIRST...</div>
+      
+      <button id="yesBtn">YES! I'M IN! 🎉</button>
+      <button id="noBtn" style="background-color: #e0e0e0; color: #777;">No, I hate you 😢</button>
+    </div>
+
+    <!-- SECTION 2: THE DETAILS -->
+    <div id="party-details">
+      <h1>YAY! 🥳</h1>
+      <p>I can't wait to see you! Here is everything you need to know.</p>
+
+      <div style="background-color: #f0f7f2; padding: 15px; border-radius: 15px; margin-bottom: 20px; text-align: left;">
+        <p><strong>📍 Where:</strong> Ladies' Recreation Club (LRC) 10 Old Peak Road, Mid-Levels</p>
+        <p><strong>⏰ When:</strong> November 6th, Friday 6:00-9:00 pm</p>
+        <p><strong>👗 Dress Code:</strong> Comfy shirt and pants (shorts best, no skirts)</p>
+      </div>
+
+      <h2>Party Prep & Links</h2>
+      <a href="https://canva.link/e69skpikxcu7jeo" target="_blank" class="action-link">🎁 View My Wishlist (Pay Attention!)</a>
+      <a href="https://drive.google.com/file/d/1_xzkLVub7bEGX-Wnkqi7x9j4Gs4mFPPu/view?usp=sharing" target="_blank" class="action-link secondary-btn">📝 Download Party Bingo</a>
+      <a href="https://forms.gle/BaJirkx8iM71DcT19" target="_blank" class="action-link secondary-btn">🤫 Submit a "Mission't"</a>
+
+      <h2>Your Secret Mission</h2>
+      <div style="background-color: #ffcdd2; padding: 10px; border-radius: 10px; margin-bottom: 15px; color: #b71c1c; font-size: 0.9em;">
+        <strong>⚠️ CRITICAL MISSION RULES:</strong><br>
+        You can look at the wishlist on your laptop, but <strong>ONLY click the button below on the phone you are bringing to the party!</strong> If you click it on your laptop, your mission will be stuck there!
+      </div>
+      <p style="font-size: 0.9em;">Screenshot your mission if you want and DO NOT tell anyone what it is!</p>
+      <button id="missionBtn">Get My Mission 🕵️‍♀️</button>
+      
+      <div id="missionDisplay" class="mission-box">
+        <!-- The mission will appear here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- THE FIREBASE BRAIN (JAVASCRIPT) -->
+  <script type="module">
+    // 1. Import Firebase tools
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getFirestore, collection, addDoc, getDocs, query, where, updateDoc, doc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+    // 2. 🚨 PASTE YOUR FIREBASE CONFIG CODE HERE 🚨
+    // Replace the empty firebaseConfig below with the one you copied from Firebase!
+    const firebaseConfig = {
+        apiKey: "AIzaSyBKpGaBBeMHOogvPaxakSBcPZOCi-1lwGA",
+        authDomain: "nibbles-18.firebaseapp.com",
+        projectId: "nibbles-18",
+        storageBucket: "nibbles-18.firebasestorage.app",
+        messagingSenderId: "68610927455",
+        appId: "1:68610927455:web:213ac742c6b17bb56164ea"
+    };
+
+    // --- NEW: Safety check to prevent the blank screen crash! ---
+    if (!firebaseConfig.projectId) {
+        document.getElementById("landing-page").innerHTML = `
+          <h2 style="color: #d32f2f;">Oops! 🛑</h2>
+          <p>You forgot to paste your Firebase Config into VS Code!</p>
+          <p style="font-size: 0.9em; color: #777;">Replace the empty <code>firebaseConfig</code> around line 133 with the keys from your Firebase Dashboard.</p>
+        `;
+        throw new Error("Waiting for Firebase config to be pasted...");
+    }
+
+    // 3. Connect to your database
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // --- RSVP LOGIC ---
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+    const guestNameInput = document.getElementById("guestName");
+    const nameWarning = document.getElementById("nameWarning");
+
+    // 1. CHECK MEMORY FIRST: Did they already RSVP previously?
+    const savedRSVP = localStorage.getItem("myRSVP");
+    const savedName = localStorage.getItem("myName");
+
+    if (savedRSVP === "YES") {
+      document.getElementById("landing-page").style.display = "none";
+      document.getElementById("party-details").style.display = "block";
+    } else if (savedRSVP === "NO") {
+      document.getElementById("landing-page").innerHTML = `<h2>Aww 😢</h2><p>Thanks for letting me know, ${savedName}. You'll be missed!</p>`;
+    }
+
+    // 2. THE BUTTON CLICKS (If they haven't RSVP'd yet)
+    yesBtn.addEventListener("click", async function() {
+      const guestName = guestNameInput.value.trim();
+      if (guestName === "") { nameWarning.style.display = "block"; return; }
+      nameWarning.style.display = "none";
+      
+      // Save to Firebase (The Central Brain)
+      try {
+        await addDoc(collection(db, "rsvps"), { name: guestName, response: "YES", timestamp: new Date() });
+      } catch (e) { console.error("Error saving RSVP", e); }
+
+      // Save to Local Memory (The Phone's Brain)
+      localStorage.setItem("myRSVP", "YES");
+      localStorage.setItem("myName", guestName);
+
+      // Show the party details
+      document.getElementById("landing-page").style.display = "none";
+      document.getElementById("party-details").style.display = "block";
+    });
+
+    noBtn.addEventListener("click", async function() {
+      const guestName = guestNameInput.value.trim();
+      if (guestName === "") { nameWarning.style.display = "block"; return; }
+      nameWarning.style.display = "none";
+
+      // Save to Firebase
+      try {
+        await addDoc(collection(db, "rsvps"), { name: guestName, response: "NO", timestamp: new Date() });
+      } catch (e) { console.error("Error saving RSVP", e); }
+      
+      // Save to Local Memory
+      localStorage.setItem("myRSVP", "NO");
+      localStorage.setItem("myName", guestName);
+
+      document.getElementById("landing-page").innerHTML = `<h2>Aww 😢</h2><p>Thanks for letting me know, ${guestName}. You'll be missed!</p>`;
+    });
+
+    // --- MISSION LOGIC ---
+    const missionBtn = document.getElementById("missionBtn");
+    const missionDisplay = document.getElementById("missionDisplay");
+
+    // Check if they already saved a mission on their phone
+    const savedMission = localStorage.getItem("mySecretMission");
+    if (savedMission) {
+      missionDisplay.innerText = "YOUR MISSION: " + savedMission;
+      missionDisplay.style.display = "block";
+      missionBtn.style.display = "none";
+    }
+
+    missionBtn.addEventListener("click", async function() {
+      missionBtn.innerText = "Connecting to database...";
+      
+      try {
+        // Find a mission that is still 'Available'
+        const q = query(collection(db, "missions"), where("status", "==", "Available"));
+        const querySnapshot = await getDocs(q);
+        
+        if (querySnapshot.empty) {
+          missionDisplay.innerText = "Uh oh! All missions have been taken!";
+          missionDisplay.style.display = "block";
+          missionBtn.style.display = "none";
+          return;
+        }
+
+        // Grab the first available mission
+        const missionDoc = querySnapshot.docs[0];
+        const missionText = missionDoc.data().task;
+
+        // Mark it as 'Taken' in the central database so no one else gets it
+        await updateDoc(doc(db, "missions", missionDoc.id), { status: "Taken" });
+
+        // Save it to their phone's local memory
+        localStorage.setItem("mySecretMission", missionText);
+
+        // Show it on screen!
+        missionDisplay.innerText = "YOUR MISSION: " + missionText;
+        missionDisplay.style.display = "block";
+        missionBtn.style.display = "none";
+
+      } catch (e) {
+        console.error("Error fetching mission", e);
+        missionBtn.innerText = "Error! Try again.";
+      }
+    });
+  </script>
+</body>
+</html>
