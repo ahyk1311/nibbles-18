@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nibbles is 18!</title>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=DynaPuff:wght@600&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
   <style>
     /* THE CANVAS (Warm Cream/Yellow Theme from Bingo Card) */
     body {
@@ -29,6 +29,21 @@
       max-width: 850px; 
       width: 100%;
       border: 4px solid #7CB342; /* Green from the bingo card */
+    }
+
+    /* NEW FONT ASSIGNMENTS */
+    h1, h2, h3 {
+      font-family: 'DynaPuff', system-ui;
+      font-weight: 600; 
+      letter-spacing: 0.5px; 
+    }
+
+    .handwritten-note {
+      font-family: 'Caveat', cursive;
+      font-size: 1.5em;
+      color: #D84315; /* A warm, burnt orange color */
+      transform: rotate(-2deg); /* Gives it a slight tilt! */
+      margin: 10px 0;
     }
 
     /* TYPOGRAPHY */
@@ -69,6 +84,7 @@
       border: none;
       padding: 15px 30px;
       border-radius: 50px;
+      font-family: 'Nunito', sans-serif;
       font-size: 1.1em;
       font-weight: 900;
       cursor: pointer;
@@ -97,8 +113,12 @@
     }
 
     /* SECTIONS (To hide/show things) */
-    #party-details {
-      display: none; 
+    #landing-page, #party-details {
+      display: none; /* Hidden initially so disclaimer shows first! */
+    }
+
+    #disclaimer-page {
+      display: block; /* This is the first thing they see */
     }
 
     .mission-box {
@@ -118,16 +138,84 @@
       display: none;
       margin-bottom: 10px;
     }
+
+    /* NEW ACTIVITY BOXES */
+    .activity-box {
+      background-color: #fcf8f2; /* A slightly warmer background */
+      border: 3px solid #FFCA28; /* A fun yellow border */
+      border-radius: 20px;       /* Nice soft rounded corners */
+      padding: 20px;
+      margin-bottom: 25px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(93, 64, 55, 0.08); /* Soft shadow */
+    }
+
+    .activity-box h3 {
+      color: #1565C0; /* Blue header to stand out */
+      font-size: 1.4em;
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+    
+    .activity-box p {
+      font-size: 1em;
+      margin-bottom: 15px;
+    }
+
+    /* COLOR THEMES FOR SPECIFIC BOXES (Paired Palette) */
+    
+    /* 1 & 3. Warm Amber/Tan Pair (Wishlist & Forbidden Tasks) */
+    .box-wishlist, .box-forbidden {
+      border-color: #D4A373; 
+      background-color: #FDF8F2; 
+    }
+    .box-wishlist h3, .box-forbidden h3 { color: #8C6239; }
+
+    /* 2 & 4. Soft Sage Green Pair (Bingo & Secret Mission) */
+    .box-bingo, .box-mission {
+      border-color: #A3B18A; 
+      background-color: #F4F7F2; 
+    }
+    .box-bingo h3, .box-mission h3 { color: #4A6B48; }
+
+    /* WISHLIST & MISSION'T BUTTON (Warm Amber/Tan) */
+    .tertiary-btn, .missiont-btn {
+      background-color: #D4A373;
+      color: white;
+    }
+    .tertiary-btn:hover, .missiont-btn:hover {
+      background-color: #BC8A5F;
+      box-shadow: 0 5px 15px rgba(212, 163, 115, 0.4);
+    }
+
+    /* BINGO & SECRET MISSION BUTTON (Rich Eucalyptus Green) */
+    .secondary-btn, .mission-btn {
+      background-color: #6A8553;
+      color: white;
+    }
+    .secondary-btn:hover, .mission-btn:hover {
+      background-color: #556D41;
+      box-shadow: 0 5px 15px rgba(106, 133, 83, 0.4);
+    }
   </style>
 </head>
 <body>
 
   <div class="invite-card">
-    
+
+    <!-- PAGE 1: THE DISCLAIMER -->
+    <div id="disclaimer-page">
+      <h1>⚠️ Quick Warning! ⚠️</h1>
+      <p>Welcome to my party portal!</p>
+      <p>Just a quick heads up: <strong>this is the very first website I have ever coded from scratch...</strong> Please be gentle with it. If a button looks weird or something breaks, just pretend it didn't happen and let me know. 😅 Also, if any wording is cringe just know that Gemini did it (like the button).</p>
+      <br>
+      <button id="understoodBtn">I promise to be nice! ➡️</button>
+    </div>
+
     <!-- SECTION 1: THE LANDING PAGE -->
     <div id="landing-page">
       <h1>🐨 NIBBLES IS 18! 👑</h1>
-      <p>You are officially invited to the most koala-fied 18th birthday party of the year.</p>
+      <p>Sorry for the late invite. 😅 You are officially invited to the most koala-fied 18th birthday party of the year!</p>
       <p>I will be hosting it on November 6, Friday, 6:00-9:00 pm.</p>
       <p>Will you be there?</p>
       
@@ -146,24 +234,64 @@
       <div style="background-color: #f0f7f2; padding: 15px; border-radius: 15px; margin-bottom: 20px; text-align: left;">
         <p><strong>📍 Where:</strong> Ladies' Recreation Club (LRC) 10 Old Peak Road, Mid-Levels</p>
         <p><strong>⏰ When:</strong> November 6th, Friday 6:00-9:00 pm</p>
-        <p><strong>👗 Dress Code:</strong> Comfy shirt and pants (shorts best, no skirts)</p>
+        <p><strong>👗 Dress Code:</strong> Comfy (t-)shirt and pants (shorts best, no skirts)</p>
+
+        <!-- Subtle divider line -->
+        <hr style="border: 1px solid #C8E6C9; margin: 15px 0;">
+        
+        <p style="margin-bottom: 0;"><strong>🎒 Notes:</strong> If you want, can bring your own camera, I will bring polaroid but if we take any, you will probably bring it home. Also, some of my wording for the game descriptions suck, just ask me if confused.</p>
+      </div>
+
+     <!-- CONTACT & ALLERGY SECTION (Updated Colors) -->
+      <div style="background-color: #F1F8E9; border: 2px dashed #AED581; padding: 15px; border-radius: 15px; margin-bottom: 30px; text-align: center;">
+        <h3 style="margin-bottom: 5px; color: #558B2F;">Got Questions? 🤔</h3>
+        <p style="margin-top: 0; font-size: 1em;">WhatsApp: <strong>6609 6966</strong> or Instagram <strong>@nibbles.koala</strong> (you should know)</p>
+        <p class="handwritten-note">(Please let me know if you have any food allergies!)</p>
       </div>
 
       <h2>Party Prep & Links</h2>
-      <a href="https://canva.link/e69skpikxcu7jeo" target="_blank" class="action-link">🎁 View My Wishlist (Pay Attention!)</a>
-      <a href="https://drive.google.com/file/d/1_xzkLVub7bEGX-Wnkqi7x9j4Gs4mFPPu/view?usp=sharing" target="_blank" class="action-link secondary-btn">📝 Download Party Bingo</a>
-      <a href="https://forms.gle/BaJirkx8iM71DcT19" target="_blank" class="action-link secondary-btn">🤫 Submit a "Mission't"</a>
-
-      <h2>Your Secret Mission</h2>
-      <div style="background-color: #ffcdd2; padding: 10px; border-radius: 10px; margin-bottom: 15px; color: #b71c1c; font-size: 0.9em;">
-        <strong>⚠️ CRITICAL MISSION RULES:</strong><br>
-        You can look at the wishlist on your laptop, but <strong>ONLY click the button below on the phone you are bringing to the party!</strong> If you click it on your laptop, your mission will be stuck there!
+      <!-- ACTIVITY 1: WISHLIST (Terracotta) -->
+      <div class="activity-box box-wishlist">
+        <h3>🎁 The Wishlist</h3>
+        <p>If need ideas, you can use this wishlist! Please pay attentionnn. If you got your own ideas I would be excited to see them!</p>
+        <a href="https://canva.link/e69skpikxcu7jeo" target="_blank" class="action-link tertiary-btn">View My Wishlist</a>
       </div>
-      <p style="font-size: 0.9em;">Screenshot your mission if you want and DO NOT tell anyone what it is!</p>
-      <button id="missionBtn">Get My Mission 🕵️‍♀️</button>
       
-      <div id="missionDisplay" class="mission-box">
-        <!-- The mission will appear here -->
+      <!-- ACTIVITY 2: BINGO (Eucalyptus) -->
+      <div class="activity-box box-bingo">
+        <h3>📝 Party Bingo</h3>
+        <p>We will be playing Bingo throughout the night where you write what you predict will happen to get a Bingo. Download your card here to make your own card! (there is an example)</p>
+        <a href="https://drive.google.com/file/d/1_xzkLVub7bEGX-Wnkqi7x9j4Gs4mFPPu/view?usp=sharing" target="_blank" class="action-link secondary-btn">Download Party Bingo</a>
+      </div>
+
+      <!-- ACTIVITY 3: FORBIDDEN TASKS (Mushroom Taupe) -->
+      <div class="activity-box box-forbidden">
+        <h3>🤫 "Mission't" (Forbidden Tasks)</h3>
+        <p>Fill out the form so someone else can't do something during the party without a punishment. Choose wisely!</p>
+        <!-- Notice saying it will be published later -->
+        <div style="background-color: #FDF8F2; border: 1px dashed #D4A373; padding: 12px; border-radius: 10px; color: #8C6239; font-size: 0.9em; font-weight: bold;">
+          ⏳ <strong>Coming Soon!</strong><br>
+          This form will be published at a later date so everyone has enough time to RSVP first! Check back soon.
+        </div>
+      </div>
+
+     <!-- ACTIVITY 4: SECRET MISSION -->
+      <div class="activity-box box-mission">
+        <h3>🕵️‍♀️ Your Secret Mission</h3>
+        <p>Everyone gets a unique, secret party mission to complete. Screenshot it and don't tell anyone!</p>
+        
+        <!-- Distinct Soft Green Warning Box (Different shade than the main box background) -->
+        <div style="background-color: #E2EADD; border: 1px solid #A3B18A; padding: 12px; border-radius: 10px; margin-bottom: 15px; color: #3E543C; font-size: 0.9em;">
+          <strong>⚠️ CRITICAL RULE:</strong><br>
+          ONLY click this button on the phone you are bringing to the party! If you click it on your laptop, your mission will be stuck on your computer.
+        </div>
+
+        <!-- Green Mission Button -->
+        <button id="missionBtn" class="mission-btn">Get My Mission 🕵️‍♀️</button>
+        
+        <div id="missionDisplay" class="mission-box">
+          <!-- The randomly generated mission will appear here -->
+        </div>
       </div>
     </div>
   </div>
@@ -199,6 +327,17 @@
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
+    // --- NAVIGATION LOGIC ---
+    const understoodBtn = document.getElementById("understoodBtn");
+    const landingPage = document.getElementById("landing-page");
+    const disclaimerPage = document.getElementById("disclaimer-page");
+
+    // Move from Disclaimer to RSVP
+    understoodBtn.addEventListener("click", function() {
+      disclaimerPage.style.display = "none";
+      landingPage.style.display = "block";
+    });
+
     // --- RSVP LOGIC ---
     const yesBtn = document.getElementById("yesBtn");
     const noBtn = document.getElementById("noBtn");
@@ -210,9 +349,11 @@
     const savedName = localStorage.getItem("myName");
 
     if (savedRSVP === "YES") {
+      document.getElementById("disclaimer-page").style.display = "none"; // <-- This is the new line!
       document.getElementById("landing-page").style.display = "none";
       document.getElementById("party-details").style.display = "block";
     } else if (savedRSVP === "NO") {
+      document.getElementById("disclaimer-page").style.display = "none"; // <-- And here!
       document.getElementById("landing-page").innerHTML = `<h2>Aww 😢</h2><p>Thanks for letting me know, ${savedName}. You'll be missed!</p>`;
     }
 
